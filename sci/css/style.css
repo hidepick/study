@@ -40,7 +40,34 @@ main h1{
     padding: 100px 0;
     background: url(../images/bg_01.png) 50% 0 / cover no-repeat;
 }
-main .navi{
+main .sub_navi{
+    display: flex;
+    align-items: center;
     height:50px;
     background: #f5f5f5;
+    border-bottom:1px solid #ccc ;
+}
+main .sub_navi a{
+    display: block;
+    padding:17px 35px;
+    color:#222;
+}
+
+main .sub_navi strong{
+    background: url(../images/ico_home.png)50% no-repeat;
+    font-size: 0px;
+    border-right:1px solid #ccc ;
+}
+main .sub_navi strong a{
+    display: block;
+    padding:25px 35px;
+}
+main .sub_navi ol{
+    display: flex;
+}
+main .sub_navi ol li{
+    border-right:1px solid #ccc ;
+}
+main .sub_navi div{
+    display: none;
 }
