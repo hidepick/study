@@ -57,6 +57,7 @@ main .sub_navi strong{
     background: url(../images/ico_home.png)50% no-repeat;
     font-size: 0px;
     border-right:1px solid #ccc ;
+    border-left:1px solid #ccc ;
 }
 main .sub_navi strong a{
     display: block;
@@ -71,3 +72,90 @@ main .sub_navi ol li{
 main .sub_navi div{
     display: none;
 }
+.contents .history_info{
+    position: relative;
+    font-size: 18px;
+    padding-top:110px;
+    
+}
+.contents .history_info::before{
+    position: absolute;
+    background: url(../images/ir-bg-01.png) no-repeat 0 0;  
+    content: "";
+    display: inline-block;
+    height: 221px;
+    width: 314px; 
+    right:0;
+    bottom:0;
+
+}
+.contents .history_info strong{
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 30px;
+}
+.contents .history_info li{
+    line-height: 2;
+    background: url(../images/b-list-style.png)no-repeat 10px 15px;
+    justify-content: center;
+   
+}
+.tab ul{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    box-sizing: border-box;
+}
+.tab ul .active{
+    background: #1341AE;
+    border: 1px solid #1341AE;
+    color:#fff;
+    
+}
+.tab ul li{
+    text-align: center;
+    flex-grow: 2;
+    width:100px;
+    font-size: 16px;
+    line-height: 5;
+    border:1px solid #ccc;
+}
+
+.tab_contnets02, .tab_contnets03{
+    display: none;
+}
+.history_detail{
+    
+}
+.history_detail div{
+    float: left;
+    overflow: hidden;
+    j
+    
+    
+}
+
+.history_detail ul li{
+    display: block;
+    line-height: 1.5;
+    font-size: 16px;
+    overflow: hidden;
+    
+}
+
+.history_detail ul li strong{
+    font-weight: 600;
+    display: inline-block;
+}
+.history_detail ul li em{
+    display: inline-block;
+    color:#acacac;
+    padding-right: 65px;
+    padding-left:20px;
+}
+.history_detail ul li span{
+    display: inline-block;
+    border-left:1px solid #E6E6E6;
+    height:30px;
+    padding-left: 65px;
+}   
