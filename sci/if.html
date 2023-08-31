@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <pre>
+
+    </pre>
+    
+
+    <script>
+        let a=10;
+        let b=20;
+        //js에서는 0은 false, 1은 true
+        if(/*조건*/a<b){
+            //참일때
+            //a가 b보다 작다
+            document.write('a가 b보다 크다')
+        }else{
+            //거짓일때
+            //a가 b보다 크다
+            document.write('a가 b보다 작거나 같다')
+        }
+    </script>
+    <hr>
+    <script>
+        let aa=10;
+        let bb=20;
+        if(/*조건*/aa>bb){
+            //참일때
+            //a가 b보다 작다
+            document.write('aa가 bb보다 크다')
+        }else if(aa==bb){
+            //거짓일때
+            //a가 b보다 크다
+            document.write('aa와 bb 같다')
+        }else{
+            document.write('aa가 bb보다 작다')
+        }
+    </script>
+    <h1>타입비교</h1>
+    <script>
+        if(1 != '1'){
+            document.write('다르다')
+        }else{
+            document.write('같다' + '<hr>')
+        }
+        
+        if(2 !== '2'){//타입비교
+            document.write('2다르다')
+        }else{
+            document.write('2같다')
+        }
+        console.log(typeof(2),typeof('2'))
+    </script>
+    <h2>중첩조건문(조건문안에 조건문)</h2>
+    <script>
+        if(a!=b){
+            if(a > b){
+                document.write('a가 b보다 크다')
+            }else{
+                document.write('a가 b 보다 작다')
+            }
+        }else{
+            document.write('a와 b가는 같다')
+        }
+    </script>
+</body>
+</html>

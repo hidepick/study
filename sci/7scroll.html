@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #go-top{
+            width:50px;
+            height:50px;
+            position: fixed;
+            bottom:50px;
+            right:50px;
+            background: #444;
+            color:#fff;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+        #go-top.active{
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>main</h1>
+        <aticle>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates quam, ad quis dignissimos atque, nostrum commodi repudiandae iusto tenetur facilis nisi totam at rerum eveniet consequatur. Illum nulla earum mollitia.</p>
+        </aticle>
+        <aticle>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates quam, ad quis dignissimos atque, nostrum commodi repudiandae iusto tenetur facilis nisi totam at rerum eveniet consequatur. Illum nulla earum mollitia.</p>
+        </aticle>
+        <aticle>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates quam, ad quis dignissimos atque, nostrum commodi repudiandae iusto tenetur facilis nisi totam at rerum eveniet consequatur. Illum nulla earum mollitia.</p>
+        </aticle>
+        <aticle>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates quam, ad quis dignissimos atque, nostrum commodi repudiandae iusto tenetur facilis nisi totam at rerum eveniet consequatur. Illum nulla earum mollitia.</p>
+        </aticle>
+    </div>
+    <a href="#" id="go-top" title="backtotop"></a>
+    <script>
+        let btt=document.querySelector('#go-top'),
+            docEle=document.documentElement;
+        //스크롤량확인방법
+        let scrollAmount;
+        window.addEventListener('scroll', function(){
+            // let scrollAmount=docEle.scrollTop;//스크롤양
+            scrollAmount=this.pageYOffset;//스크롤양
+            console.log(scrollAmount)
+            if(scrollAmount>100){
+                btt.classList.add('active')
+
+            }else{
+                btt.classList.remove('active')
+            }
+
+            
+        })
+        //스크롤양 0으로 만들기->스크롤양지정 window.scrollTo(x,y)
+        //스크롤양 변경 ->window.scrollBy(x,y)
+        //시간 setTimeout(할일, 시간), setInterval(할일, 시간)
+        btt.addEventListener('click', e=>{
+                e.preventDefault();
+                //btt.style.top=window.scrollBy(0,-50)
+                let scrollInterval=setInterval(function(){
+                    if(scrollAmount!=0){
+                        window.scrollBy(0,-50)
+                    }else{
+                        clearInterval(scrollInterval)
+                    }
+                    
+                },10)
+                
+            })
+            
+    </script>
+</body>
+</html>

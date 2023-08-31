@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Align items to the center -- just for presentation purposes. */
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+/* 1. Style the hamburger button. */
+.hamburger-button {
+	position: absolute;
+	transition: .3s ease-in-out;
+	width: 45px;
+	height: 34px;
+	display: block;
+	top: 2rem;
+	right: 2rem;
+	z-index: 100;
+}
+.hamburger-button span{
+    position:absolute;
+    height:8px;
+    border-radius: 4px;
+    width:100%;
+    background: #818181;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+.hamburger-button span:nth-child(1){
+    top:0
+}
+.hamburger-button span:nth-child(2),.hamburger-button span:nth-child(3){
+    top:13px
+}
+.hamburger-button span:nth-child(4){
+    top:26px
+}
+.hamburger-button.active span:nth-child(1),
+.hamburger-button.active span:nth-child(4){
+    opacity: 0;
+   
+
+}
+.hamburger-button.active span:nth-child(2){
+    transform: rotate(45deg);
+
+}
+.hamburger-button.active span:nth-child(3){
+    transform: rotate(-45deg);
+
+}
+.overlay{
+    position: fixed;
+    background: #f7f7f7;
+    top:0;
+    left:0;
+    height:0;
+    width:100%;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+.overlay.visible{
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+}
+.menu{
+    
+    padding:0; 
+    margin: 0;
+    
+}
+.menu ul li{
+    list-style: none;
+    margin: 1rem 0;
+    opacity: 0;
+}
+.overlay.visible .menu ul li{
+    animation:fadeInLeft 0.3s ease forwards;
+}
+.overlay.visible .menu ul li:nth-child(1){
+    animation-delay: 0.23s;
+}
+.overlay.visible .menu ul li:nth-child(2){
+    animation-delay: 0.26s;
+}
+.overlay.visible .menu ul li:nth-child(3){
+    animation-delay: 0.29s;
+}
+.overlay.visible .menu ul li:nth-child(4){
+    animation-delay: 0.32s;
+}
+.overlay.visible .menu ul li:nth-child(5){
+    animation-delay: 0.35s;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color:#aaa;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+.menu ul li a:hover{opacity: 1;}
+@keyframes fadeInLeft{
+    0%{opacity: 0;
+        transform: translateX(-25%);
+    }
+    100%{opacity: 1;
+        transform: translateX(0);
+    }
+}
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+    <link href='css/custom.css'>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+    <a href="#" class="hamburger-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <div class="overlay">
+	<nav class="menu">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Products</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+</div>
+    <script>
+        // var btn=hamburger-button
+
+        $('.hamburger-button').click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('active')
+            $('.overlay').toggleClass('visible')
+        })
+        
+    </script>
+</body>
+</html>

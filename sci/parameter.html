@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="alert"> 
+        <p id="opentext" class="opentext">알림창을 여세요</p>
+        <button id="close">close</button>
+        <button onclick="openbtn()"  id="alert">open1</button>
+        <!-- <button onclick="openbtn1()"  id="alert1">open2</button> -->
+    </div>
+    <script>
+        document.getElementById("close").addEventListener("click", function(){
+            document.getElementById("alert").style.display="none";
+        })
+        // function openbtn(hole){
+        //     document.getElementById("alert").style.display=hole;
+        // }
+        // function openbtn(hole){
+        //     document.getElementById("alert").style.display="block"
+        //     document.getElementsByClassName("opentext")[0].innerHTML="id"
+        // }
+        // function openbtn1(hole){
+        //     document.getElementById("alert1").style.display="block"
+        //     document.getElementsByClassName("opentext")[0].innerHTML="pw"
+        // }
+        
+
+    </script>
+</body>
+</html>

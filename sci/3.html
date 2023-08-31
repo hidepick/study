@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{height:100px; width:200px}
+    </style>
+</head>
+<body>
+    
+<h1>1</h1>
+<h2></h2>
+<button>btn</button>
+<section class="container">
+    <h2>section-tit</h2>
+    <ul id="list1" class="list">
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+    </ul>
+    <h2>section-tit</h2>
+    <ul id="list1" class="list">
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+    </ul>
+    <h2>section-tit</h2>
+    <ul id="list1" class="list">
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+        <li>list5</li>
+    </ul>
+    <p>l123132</p>
+    <p>l123123</p>
+    <p>l123132</p>
+    <select id="color">
+        <option value="#ccc">1</option>
+        <option value="red">2</option>
+        <option value="blue"> 3</option>
+    </select>
+</section>
+<input type="text" id="name">
+<script>
+
+let btn=document.querySelector('button');
+
+btn.addEventListener('click',function(){
+   btn.style.color="red"
+})
+// document.getElementsByTagName('h2')[1].style.color="blue";
+// document.getElementsByTagName('h2')[2].style.color="blue";
+// document.getElementsByTagName('h2')[3].style.color="blue";
+let title=document.getElementsByTagName('h2');
+for(let i=0; i<title.length; i++){
+    title[i].style.color="blue";
+}
+let titleUl=document.getElementsByClassName('list');
+
+let j=0
+while(j<titleUl.length){
+    titleUl[j].style.backgroundColor="#818181"
+    j++
+}
+
+
+console.log(document.getElementsByTagName('h2'))
+
+let box=document.querySelector("h1").style.opacity=0.5;
+let pp=document.querySelectorAll('p')
+
+pp.forEach(function(item, index){
+    item.addEventListener('click', function(){
+        item.style.color='red'
+    })
+})
+let clickbtn=document.querySelector('button')
+clickbtn.addEventListener('mousedown', function(){
+    this.style.color='blue'
+})
+clickbtn.addEventListener('mouseup', function(){
+    this.style.color=''
+})
+let selectOpt=document.getElementById('color')
+let bodyColor=document.body;
+selectOpt.addEventListener('change', function(){
+    let selectedValue=this.value
+    bodyColor.style.backgroundColor=selectedValue
+})
+document.querySelector('#name').addEventListener('change', function(){
+    alert('hihi' + this.value+'님')
+})
+
+</script>
+
+
+</body>
+</html>

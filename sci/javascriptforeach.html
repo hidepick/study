@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers=[1,2,3,4,5]
+        // for(var i=0; i<numbers.length; i++){
+        //     console.log(numbers[i])
+
+        // }
+        // numbers.forEach(asd => console.log(asd) );
+        // numbers.forEach(function(number) {
+        //     console.log(number);
+        // });
+        // numbers.forEach(number => console.log(number));
+        numbers.forEach((number, index, array)=>{
+            console.log(array)
+        })
+
+        const myArr=['고양이','강아지','새'];
+        myArr.forEach((el,i)=>{
+            console.log('el'+el);
+            console.log('i'+i)
+            if(el==='강아지'){
+                myArr.shift()
+            }
+        })
+        console.log(myArr)
+        const listData = [
+        {
+            id: 1,
+            text: 'hello',
+        },
+        {
+            id: 2,
+            text: 'everyone',
+        },
+        {
+            id: 3,
+            text: 'welcome',
+        },
+        {
+            id: 4,
+            text: 'to',
+        },
+        {
+            id: 5,
+            text: 'my blog',
+        },
+        ]
+        var newArr = listData.text.filter(function(v, i, arr) {
+            return condition;
+        });
+        
+    </script>
+</body>
+</html>

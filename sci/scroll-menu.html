@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>scroll_menu</title>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+		<!-- <script type="text/javascript" src="js/scroll_menu.js"></script> -->
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+        <style>
+            * { margin:0; padding:0; }
+            body { background: #545454; }
+
+            #top_menu { position: fixed;width: 100%; overflow: auto; height:114px; left:0; right:0; top:0px; background: #545454; }
+            .container{ width: 100%;  margin:0 auto;}
+
+            #logo a{text-decoration: none; color: #fff;}
+            #top_menu ul {margin-right:33px; display: flex;}
+            #top_menu ul li { padding:59px 0px 0px 63px; list-style: none; color: #CCCCCC;}
+            #top_menu ul li a { color:#fff; text-decoration:none; }
+            #top_menu ul li.on a { color:#000; font-weight:bold; } 
+            #logo {float:left; width:125px; padding-top:40px; color:#FFFFFF;}
+
+            #contents > section {padding:104px 0; height:100vh; }
+            #contents > section h2{ margin-top: 50px; font-size: 3em; color: #FFF;}
+            #section1 {background:#00BAFF;}
+            #section2 {background:#CCCCCC;}
+            #section3 {background:#FFE200; }
+            
+        </style>
+	</head>
+	<body>
+
+			<header id="top_menu">
+				<div class="container">
+					<!-- <h1 id="logo">
+						<a href="#home">ABC</a>
+					</h1> -->
+					<ul>
+						<li class="on"><a href="#section1">section 1</a></li>
+						<li><a href="#section2">section 2</a></li>
+						<li><a href="#section3">section 3</a></li>
+                        <li><a href="#section4">section 4</a></li>
+                        <li><a href="#section5">section 5</a></li>
+                        <li><a href="#section6">section 6</a></li>
+					</ul>
+				</div>						
+			</header>
+			<main id="contents">
+				<section id="section1">
+					<div class="container">
+						<h2>section 1</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+				<section id="section2">
+					<div class="container">
+						<h2>section 2</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>				
+				<section id="section3">
+					<div class="container">
+						<h2>section 3</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+                <section id="section4">
+					<div class="container">
+						<h2>section 1</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+				<section id="section5">
+					<div class="container">
+						<h2>section 2</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>				
+				<section id="section6">
+					<div class="container">
+						<h2>section 3</h2>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore assumenda quos ut alias qui. Ad laudantium fuga quasi consectetur nihil voluptates quidem amet. Maiores, obcaecati porro expedita asperiores earum corporis!
+						</p>
+					</div>
+				</section>
+			</main>
+            <script>
+                //제이쿼리
+                let $menu=$('#top_menu ul li')
+                let $menuWrap=$('#top_menu ul')
+                let $contents=$('#contents > section')
+
+
+                //console.log($contents)
+
+                    //몇번째를 클릭했는지 순번확인하고 순번에 맞는 내용이 화면 상당에서 얼마 떨어져 있는지의 
+                    //거리 (1100) html과 body 스크롤양을 1100만큼 준다animate를 써서 과정 보이게
+                    //메뉴를 클릭하면 할일
+                    //스크롤양 높이 
+                    $menu.click(function(e){
+                        e.preventDefault()
+                        let idx =$(this).index()
+                        // console.log(idx)
+                        let tt = $contents.eq(idx).offset().top
+                        //해당위치로 이동하도록
+                        $('html, body').animate({scrollTop:tt})
+
+
+                        //클릭하면 모든 메뉴에서 on제거하고 클릭한 요소에만 on
+                        // $menu.removeClass('on')
+                        $(this).addClass('on')
+                        //클릭한요소에만 on 나머지 형제 on제거
+                        $(this).siblings().removeClass('on')
+                        
+                    })
+                    $(window).scroll(function(){
+                        //스크롤시 해당컨텐츠에 맞는 메뉴 on
+
+                        //현재스크롤양 sct에 저장
+                        let $sct=$(this).scrollTop()
+                        $contents.each(function(i){
+                            var tg=$(this);
+                            if(tg.offset().top-114 < $sct){
+                                //현재 스크롤을 해당컨텐츠가 화면 상단 거리보다 많이 했다면
+                                $menu.removeClass('on')
+                                $menu.eq(i).addClass('on')
+                            }
+                        })
+                        // 
+                        // 
+                    })
+                    
+            </script>
+	</body>
+</html>

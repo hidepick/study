@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-menu .active a{background: #000; color: #fff;}
+        .nav{position: relative;}
+        .tab-menu{display: flex;  z-index:1;position: relative; 
+            padding-left:0;gap:20px}
+        .tab-menu li{list-style: none; z-index:1; padding:10px 20px; }
+        .tab-menu a{display: inline-block; color:#ccc}
+        #tab-content .active{display: block;}
+        /* #tab-content div{display: none;} */
+        /* .highlight{position:absolute;top:0; left:0; bottom:0;
+            width:84px; height:100%;background-color: #000;
+            transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);}  */
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="tab-menu">
+            <li class="active"><a href="#tabs-1">menu1</a></li>
+            <li><a href="#tabs-2">menu2222222</a></li>
+            <li><a href="#tabs-3">menu333</a></li>  
+        </ul>
+        <span class="highlight"></span>
+    </div>
+    <div id="tab-content">
+        <div id="tabs-1" class="active">content1</div>
+        <div id="tabs-2">content2</div>
+        <div id="tabs-3">content3</div>
+    </div>
+    <script>
+        const M = document.querySelectorAll('.tab-menu li')
+        const C = document.querySelectorAll('#tab-content > div')
+        function S(num){
+            C.forEach(function(item){
+                item.style.display='none'
+            })
+            C[num].style.display='block'
+        }
+        S(0)
+
+        M.forEach(function(item, index){
+            item.addEventListener('click', function(e){
+                e.preventDefault()
+                S(index)
+               M.forEach(function(item){
+                item.classList.remove('active')
+               })
+               M[index].classList.add('active')
+            })
+        })
+
+           
+        // function Click(num2){
+        //     M.forEach(function(item){
+        //         M.addEventListner('click', function(e){
+        //             e.preventDefault()
+        //             S(num2)
+        //         })
+                
+        //     })
+        // }
+        // Click(0)
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const Menu = document.querySelectorAll('.tab-menu li')
+        const Con = document.querySelectorAll('#tab-content > div')
+
+        //모든 컨텐츠 없애
+        
+        // function show(num){
+        //     Con.forEach(function(item){
+        //         item.style.display='none'
+        //     })
+        //     Con[num].style.display='block'
+        // }
+        // show(0)
+        // Menu.forEach(function(item, index){
+        //     item.addEventListener('click', function(e){
+        //         e.preventDefault()
+        //         show(index)
+        //         Menu.forEach(function(item){
+        //             item.classList.remove('active')
+        //         })
+        //         Menu[index].classList.add('active')
+        //     })
+           
+        // })
+        
+
+    </script>
+
+
+
+    <script>
+        const tabM = document.querySelectorAll('.tab-menu li')
+        const tabC = document.querySelectorAll('#tab-content > div')
+        //먼저 콘텐츠를 다 없애
+        // function showC(num){
+        //     tabC.forEach(function(item){
+        //         item.style.display='none'
+        //     })
+        //     tabC[num].style.display='block'
+        //     tabM.forEach(function(item){
+        //         item.classList.remove('active')
+        //     })
+        //     tabM[num].classList.add('active')
+        // }
+
+        // 메뉴를 눌렀을때 해당컨텐츠만 보이게
+        // tabM.forEach(function(item, index){
+        //     item.addEventListener('click', function(e){
+        //         e.preventDefault()
+        //         showC(index)
+        //     })
+        // })
+
+        // showC(0)
+    </script>
+</body>
+</html>

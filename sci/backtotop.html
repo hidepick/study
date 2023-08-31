@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wraper{position: relative; width:100%; height:100%;}
+        #go-top{
+            width:50px;
+            height:50px;
+            position: fixed;
+            bottom:50px;
+            right:50px;
+            background-color: #000;
+            color:#fff;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+        #go-top.active{opacity: 1;
+        visibility: visible;
+        }
+        article{height:500px;}
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, possimus. Sint voluptate numquam officiis, sunt non ipsa sit quos, velit eveniet veritatis illo hic, tenetur ullam facere est ipsam illum.</article>
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, possimus. Sint voluptate numquam officiis, sunt non ipsa sit quos, velit eveniet veritatis illo hic, tenetur ullam facere est ipsam illum.</article>
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, possimus. Sint voluptate numquam officiis, sunt non ipsa sit quos, velit eveniet veritatis illo hic, tenetur ullam facere est ipsam illum.</article>
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, possimus. Sint voluptate numquam officiis, sunt non ipsa sit quos, velit eveniet veritatis illo hic, tenetur ullam facere est ipsam illum.</article>
+        
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi, possimus. Sint voluptate numquam officiis, sunt non ipsa sit quos, velit eveniet veritatis illo hic, tenetur ullam facere est ipsam illum.</article>
+        
+        <a href="#" id="go-top">▲</a>
+    </div>
+    <script>
+        
+        let scrollBtn = document.querySelector('#go-top'),
+            // docElement = document.documentElement;
+            scrollvolume2;
+            window.addEventListener('scroll', function(){
+                // let scrollvolume = docElement.scrollTop;//문서자체에 발생한 스크롤양
+                
+                //스크롤양 확인 ,문서자체에 발생한 스크롤양, 윈도우자체에 발생한 스크롤 양
+                scrollvolume2=window.pageYOffset;
+                //console.log(scrollvolume2)
+                if(scrollvolume2 > 600){
+                    scrollBtn.classList.add('active')
+                }else{
+                    scrollBtn.classList.remove('active')
+                }
+            })
+        
+//btn클릭하면 스크롤양을 0으로
+
+    scrollBtn.addEventListener('click', e=>{
+        e.preventDefault();
+        //1번쨰 스크롤양 지정, window.scrollTop(x,y)
+        //window.scrollBy(0, -50);
+
+        //스크롤 양 변경 window.scrollBy
+
+        //시간 
+        //시간 한번 체크, 소진 할일setTimeout(할일, 시간);
+        //멈추기 clearTimeout(), cleatInterval
+        //일정 시간마다할일 setInterval(할일,시간)
+        //할일은 기본적으로 function(){...}
+
+        //이 아래는 i에서도 작동
+        // let scrollInterver = setInterval(function(){
+        //     if(scrollvolume2 !=0){
+        //         window.scrollBy(0, -50);
+        //     }else{
+        //         clearInterval(scrollInterver)
+        //     }
+        // }, 10)
+
+
+        //i를 버려
+        window.scrollTo({top:0, left:0, behavior:'smooth'})
+        //console.log(scrollT)
+    })
+    </script>
+</body>
+</html>

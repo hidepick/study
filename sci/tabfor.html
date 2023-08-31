@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .tab-menu .active a{background: #000; color: #fff;} */
+        .nav{position: relative;}
+        .tab-menu{display: flex;  z-index:1;position: relative; padding-left:0;gap:20px}
+        .tab-menu li{list-style: none; z-index:1; padding:10px 20px; }
+        .tab-menu a{display: inline-block; color:#ccc}
+        /* #tab-content .active{display: block;} */
+        /* #tab-content div{display: none;} */
+        .highlight{position:absolute;top:0; left:0; bottom:0;
+            width:84px; height:100%;background-color: #000;
+            transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);}
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="tab-menu">
+            <li class="active"><a href="#tabs-1">menu1</a></li>
+            <li><a href="#tabs-2">menu2222222</a></li>
+            <li><a href="#tabs-3">menu333</a></li>  
+        </ul>
+        <span class="highlight"></span>
+    </div>
+    <div id="tab-content">
+        <div id="tabs-1" class="active">content1</div>
+        <div id="tabs-2">content2</div>
+        <div id="tabs-3">content3</div>
+    </div>
+    <script>
+        //링크클릭하면 클릭한 요소에 href의 속성값을 변수 tabTarget에 저장
+        //저장된값에서 #삭제 tabTarget=tabs-1
+
+        //document.getElementById('tabs-1');
+
+        //tab-content안에 div 모두 display:none
+        // var targetLink = document.querySelectorAll('.tab-menu a')
+        // var tabContent = document.querySelectorAll('#tab-content div')
+        // for(var i =0; i<targetLink.length; i++){
+        //     targetLink[i].addEventListener('click', function(e){
+        //         e.preventDefault();
+        //         var orgTarget=e.target.getAttribute('href')
+        //         console.log(tabContent)
+        //     var tabTarget = orgTarget.replace('#', '')
+        //     for(var x=0; x<tabContent.length; x++){
+        //         tabContent[x].style.display='none'
+        //     }
+        //     document.getElementById(tabTarget).style.display='block';
+        //     for(var j=0; j<targetLink.length; j++){
+        //         targetLink[j].classList.remove('active')
+        //         e.target.classList.add('active')
+
+        //     }
+        // })
+        // }
+        // document.getElementById('tabs-1').style.display='block';
+        //console.log(targetLink)
+        //var orgTarget = '#tabs-1'//문자 바꾸기 a.replace('b','c')
+        // orgTarget.replace('#tabs-1', 'tabs-1')
+        //var tabTarget = orgTarget.replace('#', '')
+        //document.getElementById(tabTarget).style.display='block';
+
+        
+
+        //foreachtab
+        //1.script위주
+        const tabMenu = document.querySelectorAll('.tab-menu li')
+        const tabContent = document.querySelectorAll('#tab-content > div')
+        const highLight=document.querySelector('.highlight')
+        //console.log(tabMenu)
+        //요소의 위치
+        //대상.offsetLeft 가까운 부모중에 pos기본값이 아닌요소를 기준으로 왼쪽에서의 거리
+        //대상.offsetWidth 보더까지의 크기 반환
+        function showContent(num){
+
+            //foreach를 이용해서 텝컨텐트 모두 안보이게
+            // tabContent.forEach(num, index, all){
+            //     tabContent.style.diplay='none'
+            // }
+                tabContent.forEach(function(item){
+                    item.style.display='none'
+                })
+                tabContent[num].style.display='block'
+
+                //모든메뉴에서 active를 제거하고, 인덱스번호에 해당하는 그 요소에 active추가
+                //tabMenu[num].classList.add('active')
+
+                //tabMenu[num].classList.remove('active')
+                tabMenu.forEach(function(item){
+                    item.classList.remove('active')
+                })
+                tabMenu[num].classList.add('active')
+
+            }
+           //num의 매개변수 숫자에 맞는 tabcontent가 보아게 해
+            
+            //메뉴를 클릭하면 3개중 몇번째를 클릭했는지 확인해서 숫자를 showContent에 일을 시킨다
+            //메뉴클릭을 우선 for 반복문으로 만들어보셈
+            // for(let i=0; i<tabMenu.length;i++){
+            //     tabMenu[i].addEventListener('click', function(){
+            //         showContent(i)
+            //     })
+            // }
+            //포문을 포이치로 변경
+            tabMenu.forEach(function(item, index){
+                item.addEventListener('click', function(e){
+                    e.preventDefault()
+                    showContent(index)
+                    console.log(this.offsetLeft, this.offsetWidth)
+                    //highLight의 너비, 왼쪽값
+                    // highLight.style.left=this.offsetLeft + 'px';
+                    // highLight.style.width=this.offsetWidth + 'px';
+                    highLight.style.left=`${this.offsetLeft}px`;
+                    highLight.style.width=`${this.offsetWidth}px`;
+                }) 
+            })
+            showContent(0)
+    </script>
+</body>
+</html>

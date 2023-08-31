@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul, li {list-style: none;}
+        .box {width:500px; height:30px; margin:0 auto;}
+        .box a {float:left; width:25%; text-align: center; display:block; background:skyblue; height:30px; line-height: 30px; text-decoration: none;}
+        .box a.on {display:block; background:purple; color:#fff;}
+
+        .container {width:500px; height:300px; overflow-y: scroll; margin:0 auto;}
+        .inner { position:relative}
+        #con_01 {background:tomato;}
+        #con_02 {background:orange;}
+        #con_03 {background:gold;}
+        #con_04 {background:green;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="#con_01" class="tab">TAB1</a>
+        <a href="#con_02" class="tab">TAB2</a>
+        <a href="#con_03" class="tab">TAB3</a>
+        <a href="#con_04" class="tab">TAB4</a>
+    </div>
+    <div class="container">
+        <div class="inner">
+            <div id="con_01">
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+            </div>
+            <div id="con_02">
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+            </div>
+            <div id="con_03">
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+            </div>
+            <div id="con_04">
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+                <p>con_01</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var target = $('.box').find('a');
+        var inner = $('.container');
+
+        target.on({
+            click: function (e) {
+                e.preventDefault();
+                $(this).addClass('on').siblings().removeClass('on');
+                var _this = $(this).attr('href');
+                var ost = inner.scrollTop(_this);
+
+                inner.animate({ scrollTop: $(_this).offset().top - 30 }, 300);
+            }
+        });
+        inner.on('scroll', function (e) {
+            var $Current = $(e.currentTarget);
+            var current = e.currentTarget;
+            var topPosition = ($Current.innerHeight() || 0) * 0.4;
+            var bottomPosition = ($Current.innerHeight() || 0) * 0.6;
+            $Current.find('[id^=con]').each(function () { 
+                var top = $(this).offset().top;
+                if (topPosition >= top && bottomPosition >= (-top))
+                    $('[href="#' + this.id +'"]').addClass('on').siblings().removeClass('on');
+            });
+
+
+            if(current.scrollHeight == (current.clientHeight + current.scrollTop))
+                $('[href="#' + $('[id^=con]:last-child').attr('id') +'"]').addClass('on').siblings().removeClass('on');
+        });
+    </script>
+</body>
+</html>

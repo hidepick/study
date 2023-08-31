@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-wrapper{width:300px; overflow: hidden;}
+        #tab-content{min-height:300px;}
+        #tab-content >div{display: none;}
+        #tab-content >div.active{display: block;}
+        .tab-menu{width:300px; display: flex;position: relative;z-index: 1; overflow-x: scroll;}
+        .tab-menu li{color: #999; padding:0 10px; text-align: center; list-style: none;}
+        .tab-menu li a{display: block;}
+        .tab-menu li.active a{background-color: #000; color:#fff;}
+        .nav{position: relative;}
+        .highlight{
+            position: absolute;
+            display: inline-block;
+            width: 70px;
+            height:30px;
+            top:0;
+            left: 30px;
+            background: #000;
+            transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-wrapper">
+        <div class="nav">
+            <ul class="tab-menu">
+                <li class="active"><a href="#tabs-1" >b1234</a></li>
+                <li><a href="#tabs-2">a12345678</a></li>
+                <li><a href="#tabs-3">e1234</a></li>
+                <li><a href="#tabs-4">a12345678</a></li>
+                <li><a href="#tabs-5">e1234</a></li>
+            </ul>
+            <!-- <span class="highlight"></span> -->
+        </div>
+        <div id="tab-content">
+            <div id="tabs-1" class="active">
+                b1234
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolorum ea quod earum. Ad minima dignissimos adipisci vel, placeat laudantium doloribus incidunt est eveniet non? Neque iusto distinctio voluptatum obcaecati.</p>
+            </div>
+            <div id="tabs-2">
+                a12345678
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolorum ea quod earum. Ad minima dignissimos adipisci vel, placeat laudantium doloribus incidunt est eveniet non? Neque iusto distinctio voluptatum obcaecati.</p>
+            </div>
+            <div id="tabs-3">
+                e1243
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolorum ea quod earum. Ad minima dignissimos adipisci vel, placeat laudantium doloribus incidunt est eveniet non? Neque iusto distinctio voluptatum obcaecati.</p>
+            </div>
+            <div id="tabs-4">
+                a12345678
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolorum ea quod earum. Ad minima dignissimos adipisci vel, placeat laudantium doloribus incidunt est eveniet non? Neque iusto distinctio voluptatum obcaecati.</p>
+            </div>
+            <div id="tabs-5">
+                e1243
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolorum ea quod earum. Ad minima dignissimos adipisci vel, placeat laudantium doloribus incidunt est eveniet non? Neque iusto distinctio voluptatum obcaecati.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        //tab-menu 하나하나를 누르면 tab-content div 하나하나 보이게
+        //변수잡아 
+        let tabMenu =document.querySelectorAll('.tab-menu li')
+        let tabMenuWrap =document.querySelectorAll('.tab-menu')
+        let tabContent =document.querySelectorAll('#tab-content div')
+        let highLight=document.querySelector('.highlight')
+        function showContent(num){
+            //tabcontent모두 안보이게
+            tabContent.forEach(function(item){
+                item.style.display="none"
+            })
+            //num의 숫자에 맞는 tabcontent 보이도록 배열명[index]
+            tabContent[num].style.display="block"
+            //모든 메뉴에서 active제거 인덱스 번호에 맞는 요소에 active추가
+
+            tabContent.forEach(function(item){
+                item.classList.remove('active')
+            })
+            tabContent[num].classList.add('active')
+
+            tabMenu.forEach(function(item){
+                item.classList.remove('active')
+                
+            })
+            tabMenu[num].classList.add('active')
+            
+        }
+       
+        //알아야할거 =메뉴중 누굴 클릭했는지 숫지=>해당숫자에 맞는 showContent()에 일시켜
+        console.log(tabMenu)
+        //반복문으로
+        // for(let i=0; i<tabMenu.length;i++){
+        //     tabMenu[i].addEventListener('click', function(){
+        //         showContent(i)
+               
+        //     })
+
+        // }
+        //요소 위치 대상.offsetLeft 가까운 부모중에 pos 기본값이 아닌 요소를 기준으로 왼쪽에서 얼마나
+        //요소의 너비 대상.offsetWidth 보더까지의 크기
+        
+        tabMenu.forEach(function(item, index){
+            item.addEventListener('click', function(e){
+                e.preventDefault()
+                showContent(index)
+                //highLight의 너비를 left를 이용해서 바꿔줘
+                // highLight.style.width=item.offsetWidth+'px'
+                // highLight.style.left=item.offsetLeft+'px'
+
+                //es6
+                // highLight.style.width=`${item.offsetWidth}px`
+                // highLight.style.left=`${item.offsetLeft}px`
+                // console.log(this.offsetLeft,this.offsetWidth)
+                item.style.width=`${tabMenuWrap.offsetWidth}px`
+                item.style.left=`${tabMenuWrap.offsetLeft}px`
+                console.log(tabMenuWrap.offsetLeft,tabMenuWrap.offsetWidth)
+            })
+        })
+        showContent(0)
+    </script>
+</body>
+</html>

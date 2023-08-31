@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40em;
+        }
+        /* .accordionItem .accordionTitle {transition: all 0.3s;} */
+        .accordionTitle {
+        cursor: pointer;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: relative;
+       
+        }
+        /* .accordionContent{
+            transition: all 0.3s;opacity: 0;
+        }
+        .accordionContent.is-open{
+            opacity: 1;
+        } */
+        .accordionContent {
+        display: none; 
+        }
+        .accordionTitle + .accordionContent {display: none;transition:1s;opacity: 0; }
+        .accordionTitle.is-open + .accordionContent {transition:1s;opacity: 1;
+        display: block;
+        }
+        .accordionContent.active{opacity: 1;}
+        .accordionTitle::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat; 
+        width:10px; height:10px;transform: rotate(00deg); transition: all 0.3s; background-size: 10px auto; top:0; right:0;}
+        .accordionTitle.is-open::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat;  
+        width:10px; height:10px;transform: rotate(-180deg); background-size: 10px auto;}
+    </style>
+</head>
+<body>
+    
+    <div>
+        <div class="accordionItem">
+          <h2 class="accordionTitle">Tab 1
+            <div class="accordionContent">
+              <p>Information here</p>
+            </div>
+          </h2>
+          <div class="accordionContent">
+            <p>Information here</p>
+          </div>
+        </div>
+    
+        <div class="accordionItem">
+          <h2 class="accordionTitle">Tab 2</h2>
+          <div class="accordionContent">
+            <p>Information here</p>
+          </div>
+        </div>
+    
+        <div class="accordionItem">
+          <h2 class="accordionTitle">Tab 3</h2>
+          <div class="accordionContent">
+            <p>Information here</p>
+          </div>
+        </div>
+      </div>
+      <script>
+        //제목
+        const accordionTitles = document.querySelectorAll(".accordionTitle");
+        accordionTitles.forEach((item) => {
+          item.addEventListener("click", () => {
+            if (item.classList.contains("is-open")) {
+              item.classList.remove("is-open");
+              
+            } else {
+              const accordionTitlesWithIsOpen = document.querySelectorAll(".is-open");
+              accordionTitlesWithIsOpen.forEach((item1) => {
+                item1.classList.remove("is-open");
+              });
+              item.classList.add("is-open");
+            }
+          });
+        });
+
+
+      </script>
+</body>
+</html>

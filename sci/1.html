@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button>click</button> -->
+    <script>
+        var _new= 'var basic';
+        _new='basic new'
+        document.write(_new)
+        let num =30;
+        document.write(num)
+        //const num1 =50;
+        // num1=0909
+        //document.write(num1)
+
+        let bool=true;
+        let n=null;
+        let u;
+        console.log(bool)
+        console.log(n)
+        console.log(u)
+        let num1 =100;
+        let num2 =39;
+        console.log(num1%num2)
+        console.log(10-'20')
+        let i=1;
+        console.log(i++)
+        console.log(i)
+
+        let a=10;
+        a=a+10
+        a+=10
+        a=a*20
+        a*=20
+        console.log(a)
+
+        function send(){
+            alert('hhi')
+        }
+        // send()
+        // function sendMsg(msg){
+        //     alert(msg)
+        // }
+        // sendMsg('hi')
+        // let sum;
+        let result = add(10,200)
+        document.write(result)//호이스팅
+
+        function add(a,b){//입력
+            let sum = a+b//할일
+            return sum //출력 
+            
+        }
+        
+    // console.log(num0);
+    // let num0=5;
+
+
+    // console.log(num3)
+    // let num3;
+    // num3 =5;
+        //이름이 없는 함수를 재사용 하려면 별수에 할당
+        let sum = function(x,y){
+            let z = x + y;
+            return z
+
+        }
+        console.log(sum(1,2))
+        //즉시실행함수
+        let result1 = (function(a,b){
+            return a+b
+        }(3,4));
+        console.log(result1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        let qweqwe=function(){
+            // alert('hi')
+        }
+        console.log(qweqwe())
+
+
+
+
+        let qwe =(function(q,w){
+            return q-w
+        })(123,1);
+        console.log(qwe)
+    let s1=
+    {
+        kor:100, 
+        eng:80, 
+        math:60,
+        total:function(){
+            let sum = this.kor+this.eng+this.math
+            return sum
+        } 
+    }
+    // let s2=
+    // {
+    //     kor:50, 
+    //     eng:80, 
+    //     math:60
+    // }
+    // s1.kor=100;
+    // s1.eng=90;
+    // s1.math=70;
+    console.log(s1.total())
+    let arr=[];
+    arr[0]='html'
+    arr[1]='css'
+    arr[2]='javascript'
+
+    let barr=['php', 'java']
+    console.log(arr.length)
+    console.log(barr.length)
+    let arr2=arr.join(',')
+    console.log(arr2)
+
+    let reversel=arr.reverse()
+    console.log(reversel)
+    console.log(arr)
+    let sort1=['b','a','c']
+
+    let sortreverse=sort1.sort()
+    console.log(sortreverse.reverse())
+    let numsss=[50,10,20,30,40]
+    console.log(numsss.sort(function(a,b){
+        return b-a
+    }))
+    console.log(sort1.sort())
+
+    let aaa=10;
+    let bbb=20;
+    if(aaa>bbb){
+        document.write('a가 b보다 크다')
+    }else if(aaa==bbb){
+        document.write('a와 b는 같다')
+    }else{
+        document.write('a가 b보다 작다')
+    }
+    let a1= 31
+    let b1=41
+    let c1=50
+    // if(a1>b1)
+    //     document.write("a가 b 보다 크다")
+    // else
+    //     document.write("a가 b 보다 작다")
+    // (a1>b1)?
+    //     document.write("a1가 b1보다 크다"):
+    //     document.write("a1가 b1보다 작다")
+if(a1<b1 && b1<c1){
+    document.write('a1가 b1 보다 작고, b1 가 c1 보다 작다')
+}else{
+document.write('a1가 b1 보다 크고, b1 가 c1 보다 크다')}
+document.write('<br>')
+if(a1<b1 || b1>c1){
+    document.write('a1가 b1 보다 작고, b1 가 c1 보다 작다')
+}else{
+document.write('a1가 b1 보다 크고, b1 가 c1 보다 크다')}
+     
+// let nums=prompt("입력",'')
+// console.log(nums);
+// switch(nums % 2){
+//     case 0:
+//         alert('짝수')
+//         break;
+        
+//     case 1:
+//         alert('홀수')
+//         break;
+//     default:
+//         alert('숫자아님')
+// } 
+// let i1 = 0;
+// console.log(i1)
+// i1 =i1+2
+// console.log(i1)
+// i1 =i1+2
+// console.log(i1)
+for(let j = 0; j<=10; j+=2){
+    document.write(j+"<br>")
+}
+    </script>
+
+
+</body>
+</html>

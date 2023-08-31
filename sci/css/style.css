@@ -97,7 +97,7 @@ main .sub_navi div{
 .contents .history_info li{
     line-height: 2;
     background: url(../images/b-list-style.png)no-repeat 10px 15px;
-    justify-content: center;
+    
    
 }
 .tab ul{
@@ -124,38 +124,76 @@ main .sub_navi div{
 .tab_contnets02, .tab_contnets03{
     display: none;
 }
-.history_detail{
-    
-}
+
 .history_detail div{
     float: left;
     overflow: hidden;
-    j
-    
-    
+    /* display: flex;
+    flex-wrap: wrap; */
+
 }
 
 .history_detail ul li{
-    display: block;
     line-height: 1.5;
     font-size: 16px;
     overflow: hidden;
-    
 }
-
-.history_detail ul li strong{
-    font-weight: 600;
-    display: inline-block;
+.year{
+    width:60px;
+    height: 30px;
 }
-.history_detail ul li em{
-    display: inline-block;
-    color:#acacac;
-    padding-right: 65px;
-    padding-left:20px;
+.month{
+    width:95px;
 }
-.history_detail ul li span{
+.year_port::before{
+    position: absolute;
+    background: #eaeaea; 
+    content: "";
     display: inline-block;
-    border-left:1px solid #E6E6E6;
+    height: 30px;
+    width: 1px; 
+    right:65px;
+    bottom:0;
+    left:0;
+}
+.year_port{
+    position: relative;
     height:30px;
     padding-left: 65px;
 }   
+.year_port:only-child{
+    padding-left: 351px;
+}   
+.history_detail ul li strong{
+    font-weight: 600;
+    
+}
+.history_detail ul li em{
+    color:#acacac;
+    padding:0 65px;
+}
+.history_detail_02{
+    border-top:10px solid #ddd;
+}
+.history_detail_02 ul li strong{
+    font-weight: 600;
+}
+.history_detail_02 ul li em{
+    color:#acacac;
+    padding:0 65px;
+}
+.history_detail_02 ul li{
+display: flex;
+}
+
+
+
+/* 0520 */
+.history_detail_03{overflow: hidden;}
+.history_detail_03 p{float: left; clear: both;}
+.history_detail_03 .month1:first-child{margin-left: 39px;}
+.history_detail_03 .year_port1:only-child{margin-left: 111px;}
+.year1{width:100px; }
+.month1{width:100px; padding-left: 50px;}
+.year_port1{width:100px; padding-left: 50px;}
+.year_port1::before{content: ""; display: inline-block; background: #eaeaea;  height: 30px;width: 1px; right:65px;bottom:0;left:10px;}

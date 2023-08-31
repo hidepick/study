@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const back=['php', 'java']
+    back.pop()
+    back.push('hihi')
+    //back=['asp', 'jsp']
+    console.log(back)
+
+
+    //할일
+    // var ssdf=function(){
+
+    // }
+    // var ssdf=()=>{
+
+    // }
+    function add(x,y){
+        return x+y
+    }
+    var add=(x,y)=>{
+        return x+y
+    }
+    let add1=(x,y)=>{
+        return x+y
+    }
+
+    //리턴이 있을때만 중괄호 생략
+    let add2=(x,y)=>x+y
+    //매개변수가 하나일때 괄호 생략가능
+    let add3=x=>x*2
+
+    //즉시실행 함수
+    (function(){
+        console.log('즉시')
+    })()
+    (()=>{
+        console.log('즉시')
+    })()
+
+    function add(a,b){
+        return a+b
+    }
+    document.write(add(100,200))
+
+    let add5=(a,b)=> a+b
+    document.write(add5(200,200))
+    let add6=a=> a*2
+    document.write(add6(200))
+
+    //spread operrator 전개연산자
+    let arr=['1', '2', '3']
+    let arr2=['4','5']
+    let combined=arr.concat(arr2)
+    console.log(combined)
+    let combined1=[...arr, ...arr2]
+    console.log(combined1)
+
+    let obj1={
+        one:1,
+        two:2,
+        other:0
+    }
+    let obj2={
+        three:3,
+        four:4,
+        other:-1
+    }
+    let combObj={
+        ...obj1,
+        ...obj2
+    }
+    console.log(combObj)
+    </script>
+</body>
+</html>

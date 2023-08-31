@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/common.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	<script src="js/jquery-1.12.4.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/jquery.jdSlider-latest.min.js"></script>
+	<!--<script src="js/main.js"></script>-->
+</head>
+<body>
+    <div class="wrap">
+       <header>
+            <a href="#" class="hamburger-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <div class="overlay">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <main>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div><span>Slide 1</span></div>
+                        </div>
+                      <div class="swiper-slide">
+                        <div><span>Slide 2</span></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div><span>Slide 3</span></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div><span>Slide 4</span></div>
+                      </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+                <div class="swipe-btn">
+                    <a class="stop" href="#">
+                    <i class="fas fa-pause fa-xs"><img src="images/stop.png"></i>
+                    </a>
+                    <a class="play" href="#">
+                        <i class="fas fa-play fa-xs"><img src="images/play.png"></i>
+                    </a>
+                </div>
+                <!-- <section class="jd-slider slider2">
+                    <div class="slide-inner">
+                        <ul class="slide-area">
+                            <li class="main_img">
+                                    <img src="images/main_01.png">                            
+                                    <h1>HTML5/CSS3</h1>
+                            </li>
+                            <li class="main_img"><img src="images/main_04.png">
+                                <h1>JavaScript/
+                                    JQuery</h1>
+                            </li>
+                            <li class="main_img"><img src="images/main_03.png">
+                                <h1>Responsive Web</h1>
+                            </li>
+                        </ul>
+                        <a class="prev" href="#">
+                            <img src="images/main-prev-btn.png">
+                        </a>
+                        <a class="next" href="#">
+                            <img src="images/main-next-btn.png">
+                        </a>
+                    </div>
+                    <div class="controller">                    
+                        <div class="indicate-area"></div>
+                        <a class="auto" href="#">
+                            <i class="fas fa-pause fa-xs"><img src="images/stop.png"></i>
+                        </a>
+                        <a class="auto" href="#">
+                            <i class="fas fa-play fa-xs"><img src="images/play.png"></i>
+                        </a>
+                    </div>
+                </section> -->
+                <div class="content">
+                    <h1>career</h1>
+                    <div class="main-bn">
+                        <div class="card-img">
+                            <h2>kth 디자인 및 퍼블리싱</h2>
+                            <div>올레티비스쿨 운영 디자인 및 퍼블리싱</div>
+                        </div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                
+            </main>
+        </header>
+    </div>
+
+    <script>
+        // var btn=hamburger-button
+
+        $('.hamburger-button').click(function(e){
+            e.preventDefault();
+            $(this).toggleClass('active')
+            $('.overlay').toggleClass('visible')
+        })
+        const orientationChange = window.matchMedia('(min-width: 833px)');
+        const changeMedia = function(e) {
+            if (e.matches) {
+                $('.menu').removeClass('on')
+                $('.hamburger-button').addClass('hidden')
+                $('.overlay').addClass('visible')
+
+            } else {
+                $('.menu').addClass('on')
+                $('.hamburger-button').removeClass('hidden')
+                $('.overlay').removeClass('visible')
+            }
+        }
+        orientationChange.addListener(changeMedia);
+        changeMedia(orientationChange);
+        //slide
+        window.onload = function () {
+            $('.slider1').jdSlider();
+            $('.slider2').jdSlider({
+                wrap: '.slide-inner',
+                isAuto: true,
+                isLoop: true,
+            });
+            $('.slider3').jdSlider({
+                wrap: '.slide-inner',
+                slideShow: 2,
+                slideToScroll: 2,
+                isLoop: false,
+                responsive: [{
+                    viewSize: 768,
+                    settings: {
+                        slideShow: 1,
+                        slideToScroll: 1
+                    }
+                }]
+            });
+            $('.slider3-2').jdSlider({
+                wrap: '.slide-inner',
+                slideShow: 2,
+                slideToScroll: 1,
+                isLoop: true,
+                responsive: [{
+                    viewSize: 768,
+                    settings: {
+                        slideShow: 1
+                    }
+                }]
+            });
+            $('.slider3-3').jdSlider({
+                wrap: '.slide-inner',
+                slideShow: 2,
+                slideToScroll: 2,
+                isLoop: true,
+                responsive: [{
+                    viewSize: 768,
+                    settings: {
+                        slideShow: 1,
+                        slideToScroll: 1
+                    }
+                }]
+            });
+            $('.slider4').jdSlider({
+                wrap: '.slide-inner',
+                isSliding: false,
+                isAuto: true,
+                isLoop: true,
+                isDrag: false
+            });
+            
+        };
+    </script>
+    <script>
+        /* ========
+    Debugger plugin, simple demo plugin to console.log some of callbacks
+    ======== */
+        function myPlugin({ swiper, extendParams, on }) {
+          extendParams({
+            debugger: false,
+          });
+    
+          on('init', () => {
+            if (!swiper.params.debugger) return;
+            console.log('init');
+          });
+          on('click', (swiper, e) => {
+            if (!swiper.params.debugger) return;
+            console.log('click');
+          });
+          on('tap', (swiper, e) => {
+            if (!swiper.params.debugger) return;
+            console.log('tap');
+          });
+          on('doubleTap', (swiper, e) => {
+            if (!swiper.params.debugger) return;
+            console.log('doubleTap');
+          });
+          on('sliderMove', (swiper, e) => {
+            if (!swiper.params.debugger) return;
+            console.log('sliderMove');
+          });
+          on('slideChange', () => {
+            if (!swiper.params.debugger) return;
+            console.log(
+              'slideChange',
+              swiper.previousIndex,
+              '->',
+              swiper.activeIndex
+            );
+          });
+          on('slideChangeTransitionStart', () => {
+            if (!swiper.params.debugger) return;
+            console.log('slideChangeTransitionStart');
+          });
+          on('slideChangeTransitionEnd', () => {
+            if (!swiper.params.debugger) return;
+            console.log('slideChangeTransitionEnd');
+          });
+          on('transitionStart', () => {
+            if (!swiper.params.debugger) return;
+            console.log('transitionStart');
+          });
+          on('transitionEnd', () => {
+            if (!swiper.params.debugger) return;
+            console.log('transitionEnd');
+          });
+          on('fromEdge', () => {
+            if (!swiper.params.debugger) return;
+            console.log('fromEdge');
+          });
+          on('reachBeginning', () => {
+            if (!swiper.params.debugger) return;
+            console.log('reachBeginning');
+          });
+          on('reachEnd', () => {
+            if (!swiper.params.debugger) return;
+            console.log('reachEnd');
+          });
+        }
+      </script>
+    
+      <script>
+        // Init Swiper
+        var swiper = new Swiper('.swiper', {
+          // Install Plugin To Swiper
+          modules: [myPlugin],
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          // Enable debugger
+          debugger: true,
+          autoplay: {
+            delay: 5000,
+            },
+            // effect: 'fade',
+            // fadeEffect: {
+            //     crossFade: true
+            // },
+        });
+        $('.play').on('click', function(){
+            swiper.autoplay.start()
+            // swiper.autoplay.stop()
+            //만약에 플레이버튼이 보이면 플레이버튼 안보이게
+            if($('.stop').css('display', 'none')){
+                $('.play').css('display', 'none')
+                $('.stop').css('display', 'block')
+                
+            }
+            return false;
+        })
+        $('.stop').on('click', function(){
+            swiper.autoplay.stop()
+            if($('.play').css('display', 'none')){
+                $('.play').css('display', 'block')
+                $('.stop').css('display', 'none')
+            }
+            // swiper.autoplay.stop()
+        })
+        //만약에 swiper-slide-active에 text-test가 있으면 active를 붙혀줘
+        
+       
+        // $(function(){
+        //     if($(".swiper-slide-active .text-test").css('opacity', '0')) {
+
+        //         $('.swiper-slide-active .text-test').css('opacity', '1')
+
+        //         } else{
+        //             $('.swiper-slide-active .text-test').css('opacity', '0')
+        //         }
+        // })
+    //     var swiper = new Swiper('.swiper', {
+    //     loop: true,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         type: 'bullets',
+    //         clickable: true,
+    //     },
+    //     on: {
+    //         activeIndexChange: function () {
+    //         alert(this.realIndex+'번째 slide입니다.');
+    //         }x
+    //     }
+    // });
+    // $(document).ready(function(){
+    //     if($('.swiper-slide').hasClass('swiper-slide-active')) {
+    //         ('.text-test').addClass('active');
+    //         // alert('1')
+    //     } else {
+    //         ('.text-test').removeClass('active');
+    //     }
+    // });
+
+      </script>
+</body>
+</html>

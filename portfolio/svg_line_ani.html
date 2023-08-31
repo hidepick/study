@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/bootstrap.css">
+	<<link rel="stylesheet" href="css/custom.css"> -->
+    <style>
+        .charts{
+            
+            width:80%;
+            margin:3rem auto;
+            display:flex;
+            justify-content: center;
+        }
+        .charts .chart{
+            margin: 0 20px;
+            position: relative;
+        }
+        .charts .chart h2{
+            color:gray;
+            position: absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+            margin:0 
+        }
+        .charts .chart svg{
+            width:220px;
+            height:220px;
+        }
+        circle{fill:#ebebeb;
+        stroke-width: 20;
+        stroke-dasharray:628;
+        stroke-dashoffset:628;
+        /* animation: line 2s forwards;*/
+        transform: rotate(-90deg);
+        transform-origin:50% 50%;
+        stroke-linecap: round;
+        }
+        /*@keyframes line{
+            from{stroke-dashoffset:628;}
+            to{stroke-dashoffset:0;}
+
+        }*/
+        .charts .chart:nth-child(1) circle{
+            stroke: #ffc114;
+        }
+        .charts .chart:nth-child(2) circle{
+            stroke: #ff5248;
+        }
+        .charts .chart:nth-child(3) circle{
+            stroke: #19cdca;
+        }
+        .charts .chart:nth-child(4) circle{
+            stroke: #4e88e1;
+        }
+        section{height:100vh}
+    </style>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+    <section>
+        <h2>content</h2>
+    </section>
+        <div class="charts">
+            <div class="chart">
+                <h2 data-num="20">0</h2>
+                <svg>
+                    <circle cx="110" cy="110" r="100"></circle>
+                </svg>
+            </div>
+            <div class="chart">
+                <h2 data-num="60">0</h2>
+                    <svg>
+                        <circle cx="110" cy="110" r="100"></circle>
+                    </svg>
+            </div>
+            <div class="chart">
+                <h2 data-num="80">0</h2>
+                <svg>
+                    <circle cx="110" cy="110" r="100"></circle>
+                </svg>
+            </div>
+            <div class="chart">
+                <h2 data-num="50">0</h2>
+                <svg>
+                    <circle cx="110" cy="110" r="100"></circle>
+                </svg>
+            </div>
+        </div>
+        <section>
+            <h2>content</h2>
+        </section>
+    <script>
+        $(function(){
+            var charts= $('.charts')
+            var chart = $('.chart')
+            var chartOCT=chart.offset().top-600;
+            var exsuted=false
+            $(window).scroll(function(){
+                var currentSCT = $(this).scrollTop()
+                
+                if(currentSCT >= chartOCT){
+                    if(!charts.hasClass('active')){
+                        aniChart()
+                    // exsuted=true;
+                    charts.addClass('active');
+                    }
+                    
+                }else{
+
+                }
+            })
+            function aniChart(){
+                chart.each(function(){
+                        var item=$(this);
+                        var title = item.find('h2');
+                        var targetNum=title.attr('data-num');
+                        var circle = item.find('circle');
+                        $({rate:0}).animate({rate:targetNum}, 
+                        {
+                            duration:1500,
+                            progress:function(){
+                                var now = this.rate;
+                                var amount = 630-(630*now/100);
+                                console.log(now);
+                                title.text(Math.floor(now));
+                                circle.css({strokeDashoffset:amount});
+                            }
+                        });
+                    });//chart each
+            }
+        });
+        
+    </script>
+</body>
+</html>

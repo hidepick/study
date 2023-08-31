@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>반복문</h1>
+
+    <h2>for</h2>
+    <ul id="for"></ul>
+<!-- 
+    <hr>
+
+    <h2>forEach</h2>
+    <ul id="foreach"></ul>
+
+    <hr>
+
+    <h2>for of</h2>
+    <div id="forof"></div>
+
+    <hr>
+
+    <h2>for in</h2>
+    <div id="forin"></div>
+
+    <hr>
+
+    <h2>do / while</h2>
+    <div id="dowhile"></div>
+    <h2>반복문</h2> -->
+    <script>
+        //var append = document.getElementById('for').innerHTML = '<li></li>'
+
+        for(var i =0; i<3; i++){
+            document.getElementById('for').innerHTML += '<li></li>'
+        }
+        // var fruits = ["apple", "orange", "cherry"];
+
+        // for(var i = 0; i<fruits.length; i++){
+        //     document.getElementById('for').innerHTML += '<li>'+fruits[i]+'</li>'
+        // }
+
+        // var i=2;
+        // document.write(i + '<br>')
+        //i=i+2
+        // i+=2;
+        // document.write(i)
+        //i=i+2
+        // i+=2;
+        // document.write(i)
+        //i=i+2
+        // i+=2;
+        // document.write(i)
+        //i=i+2
+        // i+=2;
+        // document.write(i)
+        //var i=2;
+        // for(var i = 10; i>=0; i--){
+        //     document.write(i + '<br>')
+        // }
+        // for(var i=1; i<=9; i++){
+        //     document.write(i+i *3)
+
+        // }
+        //3x1=3
+        //3x2=6
+        //...3x9=27
+
+        for(var i= 1; i<=9; i++){
+            document.write('3x'+i+'='+(i*3)+'<br>')
+        }
+        for(var i =1 ; i<=9; i++){
+            document.write('5x' )
+        }
+
+        // var c = 0;
+        // document.write(c+'<br>')
+        // c=c+2
+        // document.write(c+'<br>')
+        // c=c+2
+        // document.write(c+'<br>')
+        // c=c+2
+        // document.write(c+'<br>')
+        // c=c+2
+        document.write(c+'<br>')
+        for(var c=0; c<=10;c+=2){
+            document.write(c+'<br>')
+        }
+
+        //foreach
+
+        //대상은반드시배열
+        
+        //
+        // 대상.forEach(function(각원소, 각원소의인덱스, 전체원소){
+
+        // })
+        let arr = ['a','b','c','d','e']
+        arr.forEach(function(item, index, all){
+            //반복할일
+            document.write(item+'는 전체 배열 ' + all + '에서' + index+'번째다<br>')
+        })
+    </script>
+
+</body>
+</html>

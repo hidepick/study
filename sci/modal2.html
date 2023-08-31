@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gb{margin: 0 auto; width:100%}
+        .gb ul{margin: 0 auto; width:400px;display: flex; flex-wrap: wrap;}
+        .gb ul li{width:50%; list-style: none;width:200px;}
+        .gb ul li img{width:200px; height:200px}
+        .lightbox{opacity: 0;
+            position: fixed;
+            pointer-events: none;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: opacity .3s ease-in;
+        }
+        .lightbox.visible{opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="gb">
+        <ul>
+            <li><a href="#"><img src="images/ir-bg-01.png" data-lightbox="images/ir-bg-01.png"></a></li>
+            <li><a href="#"><img src="images/ir-bg-01.png" data-lightbox="images/ir-bg-01.png"></a></li>
+            <li><a href="#"><img src="images/ir-bg-01.png" data-lightbox="images/ir-bg-01.png"></a></li>
+            <li><a href="#"><img src="images/ir-bg-01.png" data-lightbox="images/ir-bg-01.png"></a></li>
+        </ul>
+    </div>
+    <div class="lightbox">
+        <img src="">
+    </div>
+    <script>
+        //let 변수 = 대상.getAttribute('속성명')=>속성값확인
+        //let 변수 = 대상.setAttribute('속성명', '새값')=>속성값변경
+        let gImg=document.querySelectorAll('.gb img')
+        // console.log(gImg)
+        let lightBox=document.querySelector('.lightbox')
+        let lbImg=lightBox.querySelector('img')
+        //
+        //  console.log(lbImg)
+        gImg.forEach(function(item){
+            item.addEventListener('click', function(e){
+                e.preventDefault();
+                let newImgsrc=this.getAttribute('data-lightbox');
+                lbImg.setAttribute('src', newImgsrc)
+                lightBox.classList.add('visible');
+                console.log(newImgsrc)
+            })
+        })
+        lightBox.addEventListener('click', function(){
+            lightBox.classList.remove('visible');
+        })
+    </script>
+</body>
+</html>

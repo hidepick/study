@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{position: relative;display: block;}
+        .panel-q{position: relative; cursor: pointer;}
+        .panel-q::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat; 
+        width:10px; height:10px;transform: rotate(00deg); transition: all 0.5s; background-size: 10px auto; top:0; right:0;}
+        .panel-q.active::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat;  
+        width:10px; height:10px;transform: rotate(-180deg); background-size: 10px auto;}
+        .content{display: none;}
+        .content.on{display: block;}
+        .panel-body{display: none;}
+        .active .panel-body{display: block;}
+    </style>
+</head>
+<body>
+    <!-- <button>click</button>
+    <div class="content on">contents</div>
+    <button>click</button>
+    <div class="content">contents</div>
+    <button>click</button>
+    <div class="content">contents</div> -->
+    <div class="panel-q">
+        <div class="panel-h">
+        +    1
+        </div>
+        <div class="panel-body active">
+            con1
+        </div>
+    </div>
+    <div class="panel-q">
+        <div class="panel-h">
+        +   2
+        </div>
+        <div class="panel-body">
+            con2
+        </div>
+    </div>
+    <div class="panel-q">
+        <div class="panel-h">
+        +    3
+        </div>
+        <div class="panel-body">
+            con3
+        </div>
+    </div>
+    <script>
+        const panelQ =document.querySelectorAll('.panel-q')
+        const panelH =document.querySelectorAll('.panel-h')
+        const panelB =document.querySelectorAll('.panel-body')
+        // btn.forEach(function(item){
+        //     item.addEventListener('click', function(){
+        //         con.classList.add('on')
+        //     })
+           
+        // })
+        // panelQ.addEventListener('click', function(){
+        //     panelA.alert('hi')
+        // })
+        panelQ.forEach(function(item){
+            item.addEventListener('click', function(){
+                // for(pq of panelQ){
+                //     pq.classList.remove('active')
+                // }
+                // this.classList.add('active')
+                panelQ.forEach(function(item, index){
+                    item.classList.remove('active')
+                    // console.log(item)
+                    
+                })
+                item.classList.add('active')
+                // console.log(item)
+            })
+           
+        })
+
+
+
+
+    </script>
+</html>

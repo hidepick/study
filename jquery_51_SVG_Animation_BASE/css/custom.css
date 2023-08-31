@@ -1,0 +1,211 @@
+h1, h2, h3, p {
+	font-family:'Source Sans Pro';
+	font-weight: 300;
+	font-size:3em;
+}
+.clearfix { clear:both; }
+p {
+	font-size:1.2em;
+}
+
+
+
+#blue-container {
+	background:#000 url(../images/bg.png) repeat-x;
+	padding: 120px 0;
+}
+
+#gray-container {
+	background:#fff url(../images/bg2.png);
+	padding: 120px 0;
+	margin-top:310px;
+}
+
+
+.alc {
+	text-align:center;
+}
+
+h1 {
+	color:#fff;
+}
+.notepads{
+	position: relative;
+	margin-top:40px;
+
+	height:252px;
+}
+.notepads img, .notepads img{
+	position: absolute;
+	transition: 0.5s;
+	opacity: 0;
+}
+.notepads #bigpad{
+	left:0;
+	top:0;
+	
+}
+.notepads #smallpad{
+	right:50px;
+	bottom:-5px;
+}
+.notepads.animate #bigpad{
+	left:70px;
+	opacity: 1;
+}
+
+.notepads.animate #smallpad{
+	right:150px;
+	opacity: 1;
+}
+
+.st0{fill:#E6E7E8;}
+.st1{fill:#231F20;}
+.st2{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+.st3{fill:none;stroke:#BCBEC0;stroke-width:4;stroke-miterlimit:10;}
+.st4{
+	fill:#231F20;
+	stroke:#000000;
+	stroke-width:9;
+	stroke-miterlimit:10;}	
+.st4{
+	stroke-dasharray:96;
+	stroke-dashoffset:96;
+	
+}
+.notepads.animate .st4{
+	animation:dash 0.4s linear forwards;
+}
+#line1{animation-delay:0.1s}
+#line2{animation-delay:0.2s}
+#line3{animation-delay:0.3s}
+#line4{animation-delay:0.4s}
+#line5{animation-delay:0.5s}
+@keyframes dash{
+	from{
+		stroke-dashoffset:96;
+	}
+	to{
+		stroke-dashoffset:0;
+	}
+}
+
+
+
+
+/*메뉴*/
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+@media screen and (max-width: 833px){
+	
+}
+/* 1. Style the hamburger button. */
+.hamburger-button {
+	position: absolute;
+	transition: .3s ease-in-out;
+	width: 45px;
+	height: 34px;
+	display: block;
+	top: 2rem;
+	right: 2rem;
+	z-index: 100;
+}
+.hamburger-button span{
+	position:absolute;
+	height:8px;
+	border-radius: 4px;
+	width:100%;
+	background: #818181;
+	transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+}
+.hamburger-button span:nth-child(1){
+	top:0
+}
+.hamburger-button span:nth-child(2),.hamburger-button span:nth-child(3){
+	top:13px
+}
+.hamburger-button span:nth-child(4){
+	top:26px
+}
+.hamburger-button.active span:nth-child(1),
+.hamburger-button.active span:nth-child(4){
+	opacity: 0;
+   
+
+}
+.hamburger-button.active span:nth-child(2){
+	transform: rotate(45deg);
+
+}
+.hamburger-button.active span:nth-child(3){
+	transform: rotate(-45deg);
+
+}
+.overlay{
+	position: fixed;
+	background: #f7f7f7;
+	top:0;
+	left:0;
+	height:0;
+	width:100%;
+	visibility: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: 0.3s;
+}
+.overlay.visible{
+	visibility: visible;
+	opacity: 1;
+	height: 100%;
+}
+.menu{
+	
+	padding:0; 
+	margin: 0;
+	
+}
+.menu ul li{
+	list-style: none;
+	margin: 1rem 0;
+	opacity: 0;
+}
+.overlay.visible .menu ul li{
+	animation:fadeInLeft 0.3s ease forwards;
+}
+.overlay.visible .menu ul li:nth-child(1){
+	animation-delay: 0.23s;
+}
+.overlay.visible .menu ul li:nth-child(2){
+	animation-delay: 0.26s;
+}
+.overlay.visible .menu ul li:nth-child(3){
+	animation-delay: 0.29s;
+}
+.overlay.visible .menu ul li:nth-child(4){
+	animation-delay: 0.32s;
+}
+.overlay.visible .menu ul li:nth-child(5){
+	animation-delay: 0.35s;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color:#aaa;
+	opacity: 0.75;
+	transition: opacity 0.2s ease;
+}
+.menu ul li a:hover{opacity: 1;}
+@keyframes fadeInLeft{
+	0%{opacity: 0;
+		transform: translateX(-25%);
+	}
+	100%{opacity: 1;
+		transform: translateX(0);
+	}
+}

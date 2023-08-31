@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <style>
+        .font-poppins {
+    font-family: 'Poppins';
+}
+
+/* 커스텀 */
+html, body {
+    overflow-x:hidden;
+    background-color:#afafaf;
+}
+
+body {
+    height:2000px;
+}
+
+/* 메인 슬라이더 */
+.main-visual {
+    width:100%;
+    height:calc(100vh - 83px);
+}
+
+.main-visual .main-slider {
+    font-size:0;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+.main-visual > .main-slider .slick-list,
+.main-visual > .main-slider .slick-track,
+.main-visual > .main-slider .slick-slide,
+.main-visual > .main-slider .slider-visual {
+    height:100%;
+}
+
+.main-visual .main-slider .slider-visual > .img-box > .img {
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/* 메인 슬라이더 배너 애니메이션 */
+.main-visual .main-slider .slider-visual > .img-box > .img {
+    
+}
+
+/* 슬라이더 이동 버튼 */
+.main-visual > .arrow-con {
+    position:absolute;
+    bottom:67px;
+    width:100%;
+}
+
+.main-visual > .arrow-con > .arrows {
+    max-width:1645px;
+    margin:0 auto;
+}
+
+.main-visual > .arrow-con > .arrows::after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-arrow {
+    position:static;
+    font-size:15px;
+    color:#fff;
+    width:auto;
+    height:auto;
+    line-height:normal;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-arrow::before {
+    display:none;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-prev {
+    float:left;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-next {
+    float:right;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-arrow > i {
+    font-size:24px;
+}
+
+.main-visual > .arrow-con > .arrows > .slick-arrow > i,
+.main-visual > .arrow-con > .arrows > .slick-arrow > span {
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* 슬라이더 내부 텍스트 */
+.main-visual .main-slider .slider-visual > .visual-txt {
+    position:absolute;
+    left:0;
+    bottom:150px;
+    width:100%;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con {
+    max-width:1645px;
+    margin:0 auto;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con > .inner-txt-1 {
+    display:inline-block;
+    font-size:14px;
+    color:#fff;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:5px;
+    background-color:#3a75bf;
+    letter-spacing:1px;
+    line-height:1;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con > .inner-txt-2 {
+    font-size:50px;
+    font-weight:300;
+    color:#1c2939;
+    letter-spacing:-2px;
+    line-height:65px;
+    margin-bottom:15px;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con > .inner-txt-2 > b {
+    color:#286abd;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con > .inner-txt-3 {
+    font-size:20px;
+    color:#303030;
+    letter-spacing:1px;
+    opacity:.9;
+    line-height:35px;
+}
+
+.main-visual .main-slider .slider-visual-3 > .visual-txt > .inner-txt-con > .white-txt,
+.main-visual .main-slider .slider-visual-4 > .visual-txt > .inner-txt-con > .white-txt {
+    color:#fff;
+}
+
+.main-visual .main-slider .slider-visual > .visual-txt > .inner-txt-con > .inner-txt {
+    transform:translateX(0);
+    opacity:0;
+}
+
+.main-visual .main-slider .slick-active .visual-txt > .inner-txt-con > .inner-txt {
+    animation-name:fadeInRight;
+    animation-duration:2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInRight {
+    0% {
+        transform:translateX(-50px);
+        opacity:0;
+    }
+    100% {
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+.main-visual .main-slider .slick-active .visual-txt > .inner-txt-con > .inner-txt-1 {
+    animation-delay:2s;
+}
+
+.main-visual .main-slider .slick-active .visual-txt > .inner-txt-con > .inner-txt-2 {
+    animation-delay:2.3s;
+}
+
+.main-visual .main-slider .slick-active .visual-txt > .inner-txt-con > .inner-txt-3 {
+    animation-delay:2.5s;
+}
+
+
+/* 메인 슬라이더 내부 텍스트 반응형 */
+@media (max-width:1620px){
+    .main-visual .main-slider .slider-visual > .visual-txt {
+        padding:0 15px;
+    }
+}
+
+/* 메인 슬라이더 반응형 */
+@media (max-width:1220px){
+    .main-visual {
+        height:calc(100vh - 56px);
+    }
+}
+
+/* 반응형 라이브러리 */
+@media (min-width:801px){
+    .only-mobile {
+        display:none;
+    }
+}
+
+@media (max-width:800px){
+    .only-pc {
+        display:none;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- 메인 슬라이더 -->
+<div class="main-visual">
+    <div class="main-slider">
+        <div class="slider-visual slider-visual-1">
+            <div class="visual-pc img-box only-pc">
+                <div class="img" style="background-image:url('https://picsum.photos/1920/1080');"></div>
+            </div>
+            <div class="visual-m img-box only-mobile">
+                <img src="https://picsum.photos/800/1100" alt="">
+            </div>
+            <div class="visual-txt">
+                <div class="inner-txt-con">
+                    <strong class="inner-txt inner-txt-1">DEVELOPMENT</strong>
+                    <p class="inner-txt inner-txt-2">
+                        <b>고객 맞춤형</b> 제품 개발
+                    </p>
+                    <p class="inner-txt inner-txt-3">
+                        <b>고객의 니즈를 충족하여 </b>
+                        <br class="only-mobile">
+                        <b>글로벌 시장을 선도</b>하겠습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-visual slider-visual-2">
+            <div class="visual-pc img-box only-pc">
+                <div class="img" style="background-image:url('https://picsum.photos/1920/1080');"></div>
+            </div>
+            <div class="visual-m img-box only-mobile">
+                <img src="https://picsum.photos/800/1100" alt="">
+            </div>
+            <div class="visual-txt">
+                <div class="inner-txt-con">
+                    <strong class="inner-txt inner-txt-1">QUALITY</strong>
+                    <p class="inner-txt inner-txt-2">
+                        <b>엄격한</b> 품질 관리
+                    </p>
+                    <p class="inner-txt inner-txt-3">
+                        <b>고객사의 품질기준을 </b>
+                        <br class="only-mobile">
+                        <b>완벽히 만족</b> 시켜 드리겠습니다
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-visual slider-visual-3">
+            <div class="visual-pc img-box only-pc">
+                <div class="img" style="background-image:url('https://picsum.photos/1920/1080');"></div>
+            </div>
+            <div class="visual-m img-box only-mobile">
+                <img src="https://picsum.photos/800/1100" alt="">
+            </div>
+            <div class="visual-txt">
+                <div class="inner-txt-con">
+                    <strong class="inner-txt inner-txt-1">INNOVATION</strong>
+                    <p class="inner-txt inner-txt-2 white-txt">
+                        <b>신기술로</b> 새로운 가치 창출
+                    </p>
+                    <p class="inner-txt inner-txt-3 white-txt">
+                        <b>R&D투자</b>와 <b>창의적인 아이디어</b>로 
+                        <br class="only-mobile">
+                        끊임없이 <b>신기술에 도전</b>합니다
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-visual slider-visual-4">
+            <div class="visual-pc img-box only-pc">
+                <div class="img" style="background-image:url('https://picsum.photos/1920/1080');"></div>
+            </div>
+            <div class="visual-m img-box only-mobile">
+                <img src="https://picsum.photos/800/1100" alt="">
+            </div>
+            <div class="visual-txt">
+                <div class="inner-txt-con">
+                    <strong class="inner-txt inner-txt-1">CUSTOMER IMPRESSION </strong>
+                    <p class="inner-txt inner-txt-2 white-txt">
+                        <b>고객과의</b> 약속 이행
+                    </p>
+                    <p class="inner-txt inner-txt-3 white-txt">
+                        어떤 상황에서도
+                        <br class="only-mobile">
+                        <b>고객감동을 실현</b>하겠습니다
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow-con">
+        <div class="arrows"></div>
+    </div>
+</div>
+<script>
+    console.clear();
+
+// 메인 비주얼 슬라이더 slick 적용
+$('.main-slider').slick({
+    fade:true,
+    draggable:false,
+    speed:4000,
+    lazyLoad: 'progressive',
+    autoplay:true,
+    autoplaySpeed:9000,
+    pauseOnFocus:false,
+    pauseOnHover:false,
+    appendArrows:$('.arrow-con > .arrows'),
+    prevArrow:'<button type="button" class="slick-prev"><i class="xi-angle-left-min"></i><span class="font-poppins">PREV</span></button>',
+    nextArrow:'<button type="button" class="slick-next"><span class="font-poppins">NEXT</span><i class="xi-angle-right-min"></i></button>',
+});
+</script>
+</body>
+</html>
+

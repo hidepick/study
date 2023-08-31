@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        button{position: relative;}
+        button::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat; 
+        width:10px; height:10px;transform: rotate(00deg); transition: all 0.5s; background-size: 10px auto; }
+        .active::after{content: ""; position:absolute;background: url(../sci/images/ico_home.png) no-repeat; 
+        width:10px; height:10px;transform: rotate(-180deg); background-size: 10px auto;}
+        .content{display: none;}
+        .content.on{display: block;}
+        
+    </style>
+</head>
+<body>
+    <div class="toggle-wrap">
+        <button>click</button>
+        <div class="content">contents1</div>
+    </div>
+    <div class="toggle-wrap">
+        <button>click</button>
+        <div class="content">contents2</div>
+    </div>
+    <div class="toggle-wrap">
+        <button>click</button>
+        <div class="content">contents3</div>
+    </div>
+    <h1>Lorem ipsum dolor.</h1>
+    <h2>Lorem ipsum dolor.</h2>
+    <script>
+        var con = $('.content');
+        var bu = $('button');
+        var Twrap = $('toggle-wrap') 
+        function toggles(){
+            bu.on('click', function(){
+                if(con.css('display') == 'none'){
+                    con.addClass('on')
+                    bu.addClass('active')
+                }else if(con.css('display') == 'block'){
+                    con.removeClass('on')
+                    bu.removeClass('active')
+                }
+        
+            })
+        }
+        Twrap.forEach(element => {
+            toggles()
+        });
+        
+    </script>
+</body>
+</html>

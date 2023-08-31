@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDIV{display: none;}
+        button{color:blue}
+        .please{display: none;}
+        #toc-content {
+    display: none;
+  }
+  #toc-toggle {
+    cursor: pointer;
+    color: #2962ff;
+  }
+  #toc-toggle:hover {
+    text-decoration: underline;
+  }
+    </style>
+</head>
+<body>
+    <a> 내용보기</a><br/><br/> 
+	<div id="myDIV"> 	
+		<h1>내용을 접거나 펴는 방법</h1> 	
+		<p>display </p>
+    </div>
+    <div class="click">클릭</div>
+    <div class="please">con</div>
+</ol>
+    <script>
+        // var btn = document.querySelector('a'); 
+        // var con = document.getElementById("#myDIV"); 
+        //     btn.addEventListener('click', function(){
+        //         if(con.style.display=='none'){ 		
+        //             con.style.display =='block'; 	
+        //         }else{ 		
+        //             con.style.display == 'none'; 	
+        //         } 
+        //         // alert('hi')
+        //     })	
+
+ const a = document.querySelector('.click');
+ const please=document.querySelector('.please')
+  a.addEventListener('click', function(){
+      if(please.style.display=='none'){
+        please.style.display='block'
+      }else{
+        please.style.display='none'
+      }
+      
+  });
+
+  
+    </script>
+</body>
+</html>

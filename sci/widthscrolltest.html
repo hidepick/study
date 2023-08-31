@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div {border:1px solid black;width:100px;height:130px;overflow:auto;} */
+        .inner{position: relative;}
+        button{position: absolute;}
+        button.on{color:red}
+        #result {
+       width: 200px;
+       height: 200px;
+    }
+    p{width:50}
+    .width ul {display: flex;}
+    .width ul li{ border:1px solid red}
+    button{display: block;}
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+        
+        
+        <div>가장 긴 영어단어: pneumonoultramicroscopicsilicovolcanoconiosis (주로 광산에서 규진(珪塵)을 흡입하여 생긴 폐 질환)</div><br>
+        <div>
+          <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+          </ul>
+        </div>
+        <!-- <div class="btn">
+          <button>클릭</button>
+          <button>클릭</button>
+          <button>클릭</button>
+        </div> -->
+
+        <div class="inner">
+          <button class="on">btn1</button>
+          <button>btn2ㄴㅇㄹㄴㄹㄴㅇ</button>
+          <button>btn3</button>
+        </div>
+        <h2 id="title">알록달록한 박스를 만들어봅시다</h2>
+
+        <article id="mission">
+          result의 안에 4개의 div를 이용하여 4가지 색깔을 가진 result박스를 만들어 보자.
+          <br />
+        </article>
+        <div class="width">
+          <ul>
+            <li>sdf</li>
+            <li>sdfsdfsfd</li>
+            <li>sdfsdfsfdsdfsdfsfd</li>
+          </ul>
+        </div>
+        <p>sdf</p>
+        <script>
+          var jbVar = $( '.width ul li' );
+          console.log(jbVar.eq(2).width())
+          let $btns=$('.inner button')
+          let $btnsW=$('.inner')
+          
+          // console.log(btns)
+          //버튼들의 레프트를
+          let btns=document.getElementsByTagName('button')
+          // for(let i=0; i<btns.length; i++){
+          //           btns[i].style.left=i*50+'px'
+          //         }
+          
+          // btns.forEach(function(item, index){
+          //   item[index].style.left=index*50+'px'
+           
+          // })
+          $btns.each(function(idx){
+            let newLeft=idx*$btns.outerWidth()+'px'
+            // let newLeft=idx*$btns.eq(idx).width()+'px'
+            $btns.eq(idx).css({left:newLeft})
+          })
+          // $btns.click(function(){
+          //   $btns.removeClass('on')
+          //   $(this).addClass("on")
+          // })
+          //클릭했을때 left로 가기
+          $btns.each(function(idx){
+              $(this).click(function(){
+                let newLeft1=idx*-($btns.outerWidth())+'px'
+                $btnsW.css('left', newLeft1)
+                console.log(this)
+              })
+          })
+          // console.log(btns)
+          $(document).ready(function(){
+            $btns.click(function(){
+              $(this).each(function(idx){
+                $(this).eq(idx).scrollLeft(idx*10);
+              })
+              // $("div").scrollLeft(10);
+            });
+          });
+          // console.log('button.eq(1)')
+          </script>
+</body>
+</html>

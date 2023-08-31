@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>string</h1>
+    <h2>charAt</h2>
+    <p>인덱스번호에 해당하는 문자열 출력</p>
+    <h2>indexod,serch</h2>
+    <p>내가 원하는 문자의 인덱스번호</p>
+    <script>
+        
+        let str = 'hello world';
+        document.write(str.charAt(0))
+
+        document.write(str.indexOf('d' ))
+        document.write(str.search('d'))
+    </script>
+    <ul>
+        <li><a href="a.html"></a></li>
+        <li><a href="b.html"></a></li>
+        <li><a href="c.html"></a></li>
+        <li><a href="d.html"></a></li>
+    </ul>s
+    <h2>concat</h2>
+    <p>문자열합침</p>
+    <script>
+        let str2='welcome here'
+        let str3 = str.concat(str2)
+        document.write(str3)
+    </script>
+    <h2>replace</h2>
+    <p>문자열에서 특정 문자 내가 원하는 문자로 교체</p>
+    <script>
+        let str4 = str2.replace('welcome', 'bye')
+        document.write(str2, str4)
+    </script>
+    <h2>slice</h2>
+    <script>
+        let str5=str.slice(0,5)
+        document.write(str, str5)
+    </script>
+    <h2>sprit</h2>
+    <p>분리하다, 문자열 특정 문자 구분자 배열 분리생성, 문자->배열</p>
+    <p>join과 반대 join은 배열 특정문자구분자 하나의 문자열 생성, 배열 ->문자열</p>
+    <script>
+        let org = 'html/css/javascript';
+        let new1=org.split('/');
+        document.write(org, new1)
+        console.log(typeof(org), typeof(new1))
+    </script>
+    <h2>length</h2>
+    <p>갯수</p>
+    <script>
+        document.write(str.length)
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+
+<script src="js/jquery-3.3.1.js"></script>
+</head>
+
+<script src="../sci/js/jquery-3.6.0.min.js"
+    rel="stylesheet"></script>
+
+
+<body>
+    <select id="selbox" name="selbox">
+        <option value="">선택</option>
+        <option value="1">하나</option>
+        <option value="2">둘</option>
+        <option value="3">셋</option>
+        <option value="direct">직접입력</option>
+    </select>
+    <input type="text" id="selboxDirect" name="selboxDirect"/>
+    <script>
+        $(function(){
+        //직접입력 인풋박스 기존에는 숨어있다가
+        $("#selboxDirect").hide();
+        $("#selbox").change(function() {
+        
+                  //직접입력을 누를 때 나타남
+        
+          if($("#selbox").val() == "direct") {
+              $("#selboxDirect").show();
+          }  else {
+              $("#selboxDirect").hide();
+          }
+        }) 
+        });
+        </script>
+</body>
+</html>

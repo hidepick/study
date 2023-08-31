@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button>click</button> -->
+    <!-- <pre>
+        대상=배열
+        대상.forEach(function(각원소, 각원소 인덱스, 전체원소 ){
+
+        })
+    </pre> -->
+    <p>
+        for in은
+        객체의 값에서 반복문 출력
+        for(각프로퍼티 in 객체명){
+            반복할 일
+        }
+
+        for of
+        배열의 값 반복문
+        for(각원소변수 of 배열명){
+            반복할 일
+        }
+    </p>
+    <pre>
+        문자열
+        string
+        charAt =인덱스번호에 해당하는 문자열 출력
+        IndexOf, search=내가 원하는 특정 문자가 몇번째 있는지
+        concat=배열이나문자열 합침
+        replase=문자열에서 특정문자를 내가 원하는 문자로 교체(원본은 바뀌지 않는다)
+        slice=인덱스 에 해당하는 부분 복사해서 가져올 수 있다/문자열->배열
+        split=분리하다, 문자열 특정 문자 구분자 배열 분리 생성 join(배열 특정문자구분자 하나의 문자열생성 / 배열->문자열) 과 반대
+        length=갯수
+        setTimeout=시간을 한번만 체크, 지정한 시간이 소진되면(timeout) 그때 실행 
+        alert('hi')
+        setTimeout(힐일, 시간)
+        할일 function(){실제할일}
+        시간 milisecond, 1000=1s
+        setTimeout멈추기=clearTimeout(대상의 이름)
+
+        setInterval
+        =일정시간마다
+        setInterval(힐일, 시간)
+        setInterval멈추기=clearInterval
+    </pre>
+    <ul>
+        <li><a href="a.html"></a></li>
+        <li><a href="b.html"></a></li>
+        <li><a href="c.html"></a></li>
+        <li><a href="d.html"></a></li>
+    </ul>
+
+
+    <script>
+
+// for(let i = 0; i<=10; i+=2){
+//     document.write(i+"<br>")
+// }
+// let x=0;
+// while(x<=10){
+//     document.write(x+"<br>")
+//     x+=2
+    
+// }
+// let j=0;
+// do{
+//     document.write(j+"<br>")
+//     j+=2
+// }while(j<=10)
+
+
+let arr=['a', 'b', 'c', 'd']
+arr.forEach(function(item, index, all){
+    document.write(item+'는 전체 배열' +all+'에서 '+index+'이다<br>')
+})
+
+let stu={eng:90,kor:30,math:50}
+console.log(stu.eng)
+for(item in stu)
+
+{
+    document.write(item+':'+stu[item]+'<br>')
+}    
+for(item of arr){
+    document.write(item+'<br>')
+}
+
+let str='hello world'
+document.write(str.charAt(0))
+document.write('<br>')
+document.write(str.indexOf('world'))
+document.write(str.search('hello'))
+
+let str2='welcome universe'
+let str3=str.concat(str2)
+document.write(str2,str3)
+document.write('<br>')
+let str4=str2.replace('welcome','by')
+document.write(str2,str4)
+document.write('<br>')
+let str5=str.slice(0,5)
+document.write(str+'&nbsp;' , str5)
+document.write('<br>')
+let str6='html/css/javascript'
+let str7=str6.split('/')
+document.write(str6,str7)
+console.log(typeof(str6), typeof(str7))
+document.write('<br>')
+document.write(str.length)
+
+let timeer=setTimeout(function(){
+    alert('hi')
+},4000)
+clearTimeout(timeer)
+
+
+let count=0;
+let timeer1=setInterval(function(){
+    document.write('text')
+    count++
+    console.log(count)
+    if(count==5)
+        {
+            clearInterval(timeer1)
+        }
+
+},1000)
+
+
+</script>
+
+
+</body>
+</html>

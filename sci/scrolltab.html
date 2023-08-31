@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+         body{
+  display:block;
+  transition:0.3s;
+  background-color:#000;
+  padding:0px;
+  margin:0px;
+  overflow:auto;
+}
+
+.holder{
+  width:70%;
+  background-color:#333;
+  position:static; 
+  padding:20px;
+  color:#fff;
+  border:5px #000 solid;
+  font-family:helvetica;
+  overflow:scroll;
+  padding-right:100px;
+}
+
+.right-bar{
+  position:fixed;
+  /* display: flex; */
+  list-style:none;
+  right:0px;
+  bottom:0px;
+  width:25%;
+  background-color:#222;
+  top:0px;
+  border:5px #000 solid;
+  padding:10px;
+  overflow:hidden;
+  margin:0px;
+  font-family:helvetica;
+}
+
+.right-bar a{
+  display:inline-block;
+  padding:15px;
+  border-bottom:1px #111 dashed;
+  color:#fff;
+  text-decoration:none;
+}
+
+.act{ background-color:#fa6b2e; }
+    </style>
+</head>
+<body>
+    <ul class="right-bar">
+        <li><a href="#1" class="act">1</a></li>
+        <li><a href="#2">2</a></li>
+        <li><a href="#3">3</a></li>
+        <li><a href="#4">4</a></li>
+        <li><a href="#5">5</a></li>
+        <li><a href="#6">6</a></li>
+        <li><a href="#7">7</a></li>
+        <li><a href="#8">8</a></li>
+        <li><a href="#9">9</a></li>
+        <li><a href="#10">10</a></li>
+        <li><a href="#11">11</a></li>
+        <li><a href="#12">12</a></li>
+        <li><a href="#13">13</a></li>
+        <li><a href="#14">14</a></li>
+        <li><a href="#15">15</a></li>
+        <li><a href="#16">16</a></li>
+        <li><a href="#17">17</a></li>
+        <li><a href="#18">18</a></li>
+        <li><a href="#19">19</a></li>
+        <li><a href="#20">20</a></li>
+    </ul>
+        <div class="holder" id="1">1</div>
+        <div class="holder" id="2">2</div>
+        <div class="holder" id="3">3</div>
+        <div class="holder" id="4">4</div>
+        <div class="holder" id="5">5</div>
+        <div class="holder" id="6">6</div>
+        <div class="holder" id="7">7</div>
+        <div class="holder" id="8">8</div>
+        <div class="holder" id="9">9</div>
+        <div class="holder" id="10">10</div>
+        <div class="holder" id="11">11</div>
+        <div class="holder" id="12">12</div>
+        <div class="holder" id="13">13</div>
+        <div class="holder" id="14">14</div>
+        <div class="holder" id="15">15</div>
+        <div class="holder" id="16">16</div>
+        <div class="holder" id="17">17</div>
+        <div class="holder" id="18">18</div>
+        <div class="holder" id="19">19</div>
+        <div class="holder" id="20">20</div>
+        <script>
+            /*********|on click scroll|************/
+$('.right-bar li').on('click', 'a[href^="#"]', function(e) {
+  
+  // target element id
+  var id = $(this).attr('href');
+
+  // target element
+  var $id = $(id);
+  if ($id.length === 0) {
+      return;
+  }
+
+  // prevent standard hash navigation (avoid blinking in IE)
+  e.preventDefault();
+  
+  // top position relative to the document
+  var pos = $id.offset().top;
+  // animated top scrolling
+  $('body, html').animate({scrollTop: pos}, 900);
+});
+
+$(document).ready(
+  function() {
+    var bh = $('.right-bar').height();
+          $('.holder').height(bh - 20);
+  });
+
+$(window).scroll(function() {
+
+
+      var scrollpos = $(window).scrollTop();
+      // Assign active class to nav links while scolling
+      $('.holder').each(function(i) {
+              if ($(this).position().top <= scrollpos + 60) {
+                      $('.right-bar li a.act').removeClass('act');
+                      $('.right-bar li a').eq(i).addClass('act');
+        
+//console.log(scrollpos);
+        var viewportheight = $('.right-bar').height();
+        var licount = $(".right-bar li").length;
+  $('.right-bar').animate({scrollTop: scrollpos / licount}, 0);
+        
+              }
+    
+    
+      });
+
+}).scroll();
+
+        </script>
+</body>
+</html>

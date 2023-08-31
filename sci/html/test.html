@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         *{box-sizing:border-box;margin:0;padding:0}
+        section.inner{max-width:768px;margin:auto;}
+        .section_tit{display:block;margin-bottom:10px;font-size:1.5rem;font-weight:700;letter-spacing:-.01em;color:#222;}
+        .section_tit+ul{margin-bottom:50px;}
+        .list_wrap>*{padding:.5rem 1rem;border:5px solid #fff;}
+        section.inner .year{width:100px;background:#edd6f5;font-size:1rem;}
+        section.inner .month{width:150px;background:#def2f0;font-size:1rem;}
+        section.inner .list_txt{width:calc(100% - 250px);background:#f4eab5;font-size:1rem;}
+        .layout1 .list_wrap{position:relative;}
+        /* .layout1[class*=float] .list_wrap:first-child:before{position:absolute;right:5px;bottom:calc(100% - 3px);padding:4px 10px;background:#e83131;font-size:11px;color:#fff;border-radius:6px;content:'나는 삐져나갈테야😝';} */
+        .layout1 .month:first-child{margin-left:100px;}
+        .layout1 .list_txt:only-child{float:right;}
+        .layout1.float-1 li{overflow:hidden;}
+        .layout1 li>*{float:left;}
+      </style>
+    <title>Document</title>
+</head>
+<body>
+    <section class="inner sub_history">
+        <ul class="layout1 float-1">
+          <li class="list_wrap">
+              <div class="year">2022</div>
+              <div class="month">5</div>
+              <p class="list_txt">내용입니당</p>
+          </li>
+          <li class="list_wrap">
+              <div class="month">15</div>
+              <p class="list_txt">내용입니당</p>
+            </li>
+          <li class="list_wrap">
+              <p class="list_txt">내용입니당</p>
+            </li>
+        </ul>
+        
+        </section>
+        
+</body>
+</html>

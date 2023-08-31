@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>template literal</h2>
+    <script>
+        let str1='javascript';
+        let str2='normal'
+        //let msg = '여러분은 지금 ' + str1 + str2 + ' 학습중'
+        let msg = `your now ${str1 + str2} studying `
+        document.write(msg)
+    </script>
+    <h2>var let 차이점</h2>
+
+    <script>
+        var a = 0;//초기화,할당
+        if(true){
+            var a = 2//다시 초기화,할당
+            console.log(a)
+        }
+        console.log(a)
+
+        let b = 0;//초기화,할당
+        if(true){
+            let b = 2//{스코프} 범위에서 사용할 수 있는 변수, 초기화
+            console.log(b)
+        }
+        console.log(b)
+        
+    </script>
+    <h2>let const 차이점</h2>
+    <script>
+        let c =100;
+        c=200
+        console.log(c)
+
+        const d =100;
+        //d=200 값 변경 불가
+        console.log(d)
+
+        const student={
+            eng:90,
+            kor:80
+        }
+        student.eng=70//객체내의 프로포타(변수)의 값은 변경 가능
+
+        /*student={객체의 값을 지정하는 것은 불가
+            eng:10,
+            kor:20
+        }*/
+        console.log(student.eng)
+        const backends=['jsp', 'asp', 'php']
+        //backends=['jsp', 'asp', 'php', 'java']불가
+        backends.push('java');
+        console.log(backends)
+    </script>
+    <h2>화살표함수</h2>
+    <h3>첫번째원칙</h3>
+    <script>
+        //할일
+        /*
+        var add=function (){
+
+        }//이름없는 함수
+
+        var add=()=>{
+
+        }*/
+        function add (x,y){
+            return x+y
+        }//이름이 있는 함수
+        let add_1=(x,y)=>{
+            return x+y
+        }
+        let add2=function(x,y){
+            return x+y
+        }
+        let add3= (x,y)=>{
+            return x+y
+        }
+        let add4= (x,y)=> x+y//return  이 있을때만 {중괄호} 생략가능
+        let add4_1= x=> x*2//매개변수가 하나일땐(괄호)생략가능
+
+    </script>
+    <h2>즉시실행함수</h2>
+    <script>
+        //function(){} --> ()=>{}
+        // (function(){
+        //     console.log('즉시실행함수작동')
+        // })();
+        (()=>{
+            console.log('즉시실행함수작동')
+        })();
+    </script>
+    <script>
+        // function add(a,b){
+        //     return a+b;
+        // }
+        // let add5 = function(){
+
+        // }
+        let add5=(a,b)=>a+b
+        document.write(add5(10,20))
+        // function muti(x){
+        //     return x*2
+        // }
+        let muti1=x=>x*2
+        document.write('<br>'+muti1(5))
+    </script>
+    <h2>spread operater 전개연산자</h2>
+    <script>
+        let arr1=['one', 'two'];
+        let arr2=['three', 'four']
+
+        let combined1=[arr1[0],arr1[0],arr2[0],arr2[0]]
+        console.log(combined1)
+        let combined2=arr1.concat(arr2)
+        console.log(combined2)
+        let combined3=[].concat(arr1,arr2)
+        console.log(combined3)
+        let combined4 = [...arr1, ...arr2]
+        console.log(combined4)
+        let obj1={
+            one:1, two:2, other:0
+        }
+        let obj2={
+            three:3, four:4, other:-1
+        }
+        //es5
+        var combinedobj={
+            one:obj1.one,
+            two:obj1.two,
+            three:obj2.three,
+            four:obj2.four
+        }
+        console.log(combinedobj)
+        var combinedobj2={...obj1, ...obj2}
+        console.log(combinedobj2)
+    </script>
+</body>
+</html>
